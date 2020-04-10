@@ -16,4 +16,6 @@ func TestInout(t *testing.T) {
 	if o.String() != want {
 		t.Errorf("Do: got (%s), want (%s)", o.String(), want)
 	}
+
+	// TODO: write error scenario
 }

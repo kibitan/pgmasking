@@ -3,5 +3,5 @@ package main
 import "testing"
 
 func TestCallMain(t *testing.T) {
-	// TODO: write
+	// TODO: write integration test?
 }
