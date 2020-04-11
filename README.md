@@ -131,11 +131,10 @@ or
 
 ## Development with Docker
 
-(TBC)
-
 ```bash
 docker build . -t pgmasking
-echo "sample stdout" | docker run -i masking
+echo "sample stdout" | docker run -i pgmasking
+docker run pgmasking -v
 ```
 
 ## Profiling
