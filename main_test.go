@@ -6,24 +6,9 @@ import (
 	"testing"
 )
 
-var (
-	r *os.File
-	w *os.File
-)
-
-func TestMain(m *testing.M) {
-	// faking Stdin/stdout
-	s := os.Stdout
-	r, w, _ = os.Pipe()
-	os.Stdout = w
-
-	code := m.Run()
-
-	os.Stdout = s
-	os.Exit(code)
-}
-
 func TestCallMain(t *testing.T) {
+	r, w, _ := os.Pipe()
+
 	want := "pgmasking test sql\ntest test"
 	w.Write([]byte(want))
 
