@@ -7,7 +7,7 @@ import (
 )
 
 func TestCallMain(t *testing.T) {
-	r, w, _ := os.Pipe()
+	r, w, _ := os.Pipe() // I don't know why it works...
 
 	want := "pgmasking test sql\ntest test"
 	w.Write([]byte(want))

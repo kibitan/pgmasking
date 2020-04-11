@@ -1,5 +1,7 @@
 # pgMasKING🤴
 
+[![build](https://github.com/kibitan/pgmasking/workflows/build/badge.svg?branch=master)](https://github.com/kibitan/pgmasking/actions?query=workflow%3Abuild+branch%3Amaster)
+
 *This project is currently Work in Progress*
 
 The command line tool for anonymizing PostgreSQL database records by parsing a SQL dump file and build a new SQL dump file with masking sensitive/credential data.
