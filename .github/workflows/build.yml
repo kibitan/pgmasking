@@ -10,9 +10,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Go 1.14
+        uses: actions/setup-go@v1
+        with:
+         go-version: 1.14
+        id: go
       - name: Check out code
         uses: actions/checkout@v2
-      - name: Build docker image
-        run: docker build . --target builder -t pgmasking-builder
       - name: Run test
-        run: docker run pgmasking-builder go test -v ./...
+        run: go test -race -coverprofile=coverage.txt -covermode=atomic ./...
+      - name: upload coverage to codecov
+        uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage.txt
+          fail_ci_if_error: true
