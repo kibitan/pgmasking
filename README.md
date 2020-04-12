@@ -55,19 +55,18 @@ for MySQL: [MasKING](https://github.com/kibitan/masking)
       not-date: !!str 2002-04-28
     ```
 
-    *NOTE: pgMasKING doesn't check actual schema's type from the dump. If you put incompatible value it will cause an error during restoring to the database.*
+    *NOTE: pgMasKING doesn't check actual schema's type from the dump. If you put incompatible value, it will cause an error during restoring to the database.*
 
 1. Dump database with anonymizing
 
-    TBC
+    (TBC)
+    pgMasKING works (or doesn't) with `pg_dump --column-inserts`. possible to combine with `--rows-per-insert=n` (version 12~) option.
 
     ```bash
-      pg_dump DATABASE_NAME | pgmasking > anonymized_dump.sql
+      pg_dump DATABASE_NAME --column-inserts --rows-per-insert=100 | pgmasking > anonymized_dump.sql
     ```
 
 1. Restore from the anonymized dump file
-
-    TBC
 
     ```bash
       psql ANONYMIZED_DATABASE_NAME < anonymized_dump.sql
@@ -76,7 +75,7 @@ for MySQL: [MasKING](https://github.com/kibitan/masking)
     Tip: If you don't need to have an anonymized dump file, you can directly insert it from the stream. It can be faster because it has less IO interaction.
 
       ```bash
-        pg_dump DATABASE_NAME | pgmasking | psql ANONYMIZED_DATABASE_NAME
+        pg_dump DATABASE_NAME --column-inserts --rows-per-insert=100 | pgmasking | psql ANONYMIZED_DATABASE_NAME
       ```
 
 ### options
