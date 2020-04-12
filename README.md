@@ -160,6 +160,16 @@ echo "sample stdout" | docker run -i pgmasking
 docker run pgmasking -v
 ```
 
+### run test
+
+```bash
+docker build . --target builder -t pgmasking-builder
+docker run pgmasking-builder go test -v ./..
+
+# with mounting disk
+docker run --mount src=`pwd`,target=/go/src/app,type=bind pgmasking-builder go test -v ./..
+```
+
 ## Profiling
 
 (TBC)
