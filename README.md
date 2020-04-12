@@ -132,6 +132,18 @@ or
   golint ./... && go vet ./...
 ```
 
+### Document
+
+(TBC)
+
+```bash
+  go get golang.org/x/tools/cmd/godoc
+  go doc pgmasking
+
+  godoc // boot http server
+  open http://localhost:6060
+```
+
 #### acceptance test
 
 (TBC)
