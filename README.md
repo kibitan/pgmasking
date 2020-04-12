@@ -123,7 +123,13 @@ or
 ### Run test
 
 ```bash
-  go test ./...
+  go test -race -v ./...
+```
+
+### Lint
+
+```bash
+  golint ./... && go vet ./...
 ```
 
 #### acceptance test
