@@ -4,7 +4,7 @@ COPY . .
 # RUN go get -d -v ./...
 RUN go install -v ./...
 
-FROM alpine
+FROM alpine:3.11
 WORKDIR /srv
 RUN addgroup -S app && adduser -S -G app app
 USER app
