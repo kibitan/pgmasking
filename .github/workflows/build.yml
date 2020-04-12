@@ -15,4 +15,11 @@ jobs:
       - name: Build docker image
         run: docker build . --target builder -t pgmasking-builder
       - name: Run test
-        run: docker run pgmasking-builder go test -v ./...
+        run: docker run pgmasking-builder go test -v -coverprofile=coverage.txt -covermode=atomic ./...
+      - name: Copy coverage file
+        run: docker cp pgmasking-builder:./coverage.txt .
+      - name: Copy test
+        uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage.txt
+          fail_ci_if_error: true
