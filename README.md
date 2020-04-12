@@ -1,6 +1,7 @@
 # pgMasKING🤴
 
 [![build](https://github.com/kibitan/pgmasking/workflows/build/badge.svg?branch=master)](https://github.com/kibitan/pgmasking/actions?query=workflow%3Abuild+branch%3Amaster)
+[![Maintainability](https://api.codeclimate.com/v1/badges/290b3005ecc193a3d138/maintainability)](https://codeclimate.com/github/kibitan/masking/maintainability)
 
 [![codecov](https://codecov.io/gh/kibitan/pgmasking/branch/master/graph/badge.svg)](https://codecov.io/gh/kibitan/pgmasking)
 
@@ -122,7 +123,25 @@ or
 ### Run test
 
 ```bash
-  go test ./...
+  go test -race -v ./...
+```
+
+### Lint
+
+```bash
+  golint ./... && go vet ./...
+```
+
+### Document
+
+(TBC)
+
+```bash
+  go get golang.org/x/tools/cmd/godoc
+  go doc pgmasking
+
+  godoc // boot http server
+  open http://localhost:6060
 ```
 
 #### acceptance test
