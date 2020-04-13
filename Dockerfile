@@ -2,7 +2,7 @@ FROM golang:1.14-alpine AS builder
 WORKDIR /go/src/app
 RUN addgroup -S app && adduser -S -G app app
 USER app
-COPY . .
+COPY --chown=app . .
 RUN go get -d -v ./...
 RUN go install -v ./...
 
