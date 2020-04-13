@@ -25,7 +25,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: ctokoro
+-- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.users (
@@ -60,10 +60,8 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO ctokoro;
-
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: ctokoro
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -75,24 +73,22 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_id_seq OWNER TO ctokoro;
-
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ctokoro
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: ctokoro
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: ctokoro
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.users (id, "integer", "float", money, "varchar", text, binary_type, date, time_with_timezone, timestamp_with_timezone, "interval", "boolean", point, line, lseg, path, polygon, circle, inet, macaddr8, "bit", tsvector, tsquery, uuid, xml, json, jsonb, "null") FROM stdin;
@@ -102,14 +98,14 @@ COPY public.users (id, "integer", "float", money, "varchar", text, binary_type, 
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ctokoro
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.users_id_seq', 4, true);
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: ctokoro
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.users
