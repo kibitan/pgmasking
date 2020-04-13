@@ -1,0 +1,60 @@
+Expanded display is on.
+-[ RECORD 1 ]-----------+------------------------------------------------------------------------------
+id                      | -3
+integer                 | -12345
+float                   | -1000.2213
+money                   | -$20.00
+varchar                 | +++pi   yo"""12344
+text                    | aaaa    hog""'ho'ge++. aaa
+binary_type             | \x616263206b6c6d202aa954
+date                    | 1920-01-10
+time_with_timezone      | 00:00:00+09
+timestamp_with_timezone | 2004-10-19 10:23:54
+interval                | 00:00:10
+boolean                 | f
+point                   | (-100,-299.1)
+line                    | {1.1,-2,3}
+lseg                    | [(0,0),(0,0)]
+path                    | [(20,10),(-1,2.3),(0,0)]
+polygon                 | ((90,1),(-1.12,2))
+circle                  | <(-100,-20),21>
+inet                    | 192.168.100.128/16
+macaddr                 | 08:00:2b:01:02:03
+bit                     | 100
+tsvector                | 'a':1,6,10 'and':8 'ate':9 'cat':3 'fat':2,11 'mat':7 'on':5 'rat':12 'sat':4
+tsquery                 | 'super':*
+uuid                    | d3d20743-f44c-44f8-b413-a3a2d3c4579a
+xml                     | abc<foo>bar</foo><bar>foo</bar>
+json                    | {"foo": [true, "bar"], "tags": {"a": 1, "b": null}}
+jsonb                   | {"reading": 0.00001230}
+null                    | 
+-[ RECORD 2 ]-----------+------------------------------------------------------------------------------
+id                      | 1
+integer                 | 123456
+float                   | 1.23345
+money                   | $20.10
+varchar                 | hogehogehoge
+text                    | fugafugafuga
+binary_type             | \xdeadbeef
+date                    | 2020-04-12
+time_with_timezone      | 17:00:00+02
+timestamp_with_timezone | 2004-10-19 10:23:54
+interval                | 1 year 2 mons 3 days 04:05:06
+boolean                 | t
+point                   | (100,299)
+line                    | {1,2,3}
+lseg                    | [(10,10),(-30.1,-20)]
+path                    | [(20,10),(-1,2.3)]
+polygon                 | ((20,10),(1.17,-2))
+circle                  | <(100,20),2.6>
+inet                    | 2001:4f8:3:ba:2e0:81ff:fe22:d1f1
+macaddr                 | 91:1a:ab:f0:c2:e3
+bit                     | 101
+tsvector                | 'a' 'and' 'ate' 'cat' 'fat' 'mat' 'on' 'rat' 'sat'
+tsquery                 | 'fat' & ( 'rat' | 'cat' )
+uuid                    | a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11
+xml                     | <book><title>Manual</title><chapter>...</chapter></book>
+json                    | {"bar": "baz", "balance": 7.77, "active": false}
+jsonb                   | {"reading": 0.00001230}
+null                    | 
+
