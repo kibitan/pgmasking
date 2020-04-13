@@ -12,10 +12,11 @@ FILEDIR="$( cd "$( dirname "$0" )" && pwd )"
 alias _psql='PGPASSWORD="$POSTGRES_PASSWORD" psql -h "$POSTGRES_HOST" -U "$POSTGRES_USER" "$POSTGRES_DBNAME"'
 
 ## clear tmp file
-rm "$FILEDIR"/tmp/* || echo 'no tmp file'
+rm "$FILEDIR"/tmp/* > /dev/null 2>&1 || echo 'no tmp file'
 
 ## clear table if exists
 if (_psql -c '\dt' | grep users) > /dev/null 2>&1; then
+  echo 'clear table'
   _psql < "$FILEDIR/drop_table.sql" > /dev/null
 fi
 
