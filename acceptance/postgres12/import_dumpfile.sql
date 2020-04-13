@@ -44,7 +44,7 @@ CREATE TABLE public.users (
     polygon polygon NOT NULL,
     circle circle NOT NULL,
     inet inet NOT NULL,
-    macaddr8 macaddr8 NOT NULL,
+    macaddr macaddr NOT NULL,
     "bit" bit varying(5) NOT NULL,
     tsvector tsvector NOT NULL,
     tsquery tsquery NOT NULL,
@@ -87,9 +87,9 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.users (id, "integer", "float", money, "varchar", text, binary_type, date, time_with_timezone, timestamp_with_timezone, "interval", "boolean", point, line, lseg, path, polygon, circle, inet, macaddr8, "bit", tsvector, tsquery, uuid, xml, json, jsonb, "null") FROM stdin;
-1	123456	1.23345	$20.10	hogehogehoge	fugafugafuga	\\xdeadbeef	2020-04-12	17:00:00+02	2004-10-19 10:23:54	1 year 2 mons 3 days 04:05:06	t	(100,299)	{1,2,3}	[(10,10),(-30.1,-20)]	[(20,10),(-1,2.3)]	((20,10),(1.17,-2))	<(100,20),2.6>	2001:4f8:3:ba:2e0:81ff:fe22:d1f1	08:00:2b:ff:fe:01:02:03	101	'a' 'and' 'ate' 'cat' 'fat' 'mat' 'on' 'rat' 'sat'	'fat' & ( 'rat' | 'cat' )	a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11	<book><title>Manual</title><chapter>...</chapter></book>	{"bar": "baz", "balance": 7.77, "active": false}	{"reading": 0.00001230}	\N
--3	-12345	-1000.2213	-$20.00	+++pi\tyo"""12344	aaaa\thog""'ho'ge++. aaa	\\x616263206b6c6d202aa954	1920-01-10	00:00:00+09	2004-10-19 10:23:54	00:00:10	f	(-100,-299.1)	{1.1,-2,3}	[(0,0),(0,0)]	[(20,10),(-1,2.3),(0,0)]	((90,1),(-1.12,2))	<(-100,-20),21>	192.168.100.128/16	08:00:2b:ff:fe:01:02:03	100	'a':1,6,10 'and':8 'ate':9 'cat':3 'fat':2,11 'mat':7 'on':5 'rat':12 'sat':4	'super':*	d3d20743-f44c-44f8-b413-a3a2d3c4579a	abc<foo>bar</foo><bar>foo</bar>	{"foo": [true, "bar"], "tags": {"a": 1, "b": null}}	{"reading": 0.00001230}	\N
+COPY public.users (id, "integer", "float", money, "varchar", text, binary_type, date, time_with_timezone, timestamp_with_timezone, "interval", "boolean", point, line, lseg, path, polygon, circle, inet, macaddr, "bit", tsvector, tsquery, uuid, xml, json, jsonb, "null") FROM stdin;
+1	123456	1.23345	$20.10	hogehogehoge	fugafugafuga	\\xdeadbeef	2020-04-12	17:00:00+02	2004-10-19 10:23:54	1 year 2 mons 3 days 04:05:06	t	(100,299)	{1,2,3}	[(10,10),(-30.1,-20)]	[(20,10),(-1,2.3)]	((20,10),(1.17,-2))	<(100,20),2.6>	2001:4f8:3:ba:2e0:81ff:fe22:d1f1	91:1a:ab:f0:c2:e3	101	'a' 'and' 'ate' 'cat' 'fat' 'mat' 'on' 'rat' 'sat'	'fat' & ( 'rat' | 'cat' )	a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11	<book><title>Manual</title><chapter>...</chapter></book>	{"bar": "baz", "balance": 7.77, "active": false}	{"reading": 0.00001230}	\N
+-3	-12345	-1000.2213	-$20.00	+++pi\tyo"""12344	aaaa\thog""'ho'ge++. aaa	\\x616263206b6c6d202aa954	1920-01-10	00:00:00+09	2004-10-19 10:23:54	00:00:10	f	(-100,-299.1)	{1.1,-2,3}	[(0,0),(0,0)]	[(20,10),(-1,2.3),(0,0)]	((90,1),(-1.12,2))	<(-100,-20),21>	192.168.100.128/16	08:00:2b:01:02:03	100	'a':1,6,10 'and':8 'ate':9 'cat':3 'fat':2,11 'mat':7 'on':5 'rat':12 'sat':4	'super':*	d3d20743-f44c-44f8-b413-a3a2d3c4579a	abc<foo>bar</foo><bar>foo</bar>	{"foo": [true, "bar"], "tags": {"a": 1, "b": null}}	{"reading": 0.00001230}	\N
 \.
 
 
