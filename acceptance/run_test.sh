@@ -23,10 +23,10 @@ fi
 _psql < "$FILEDIR/import_dumpfile.sql" > /dev/null
 
 ## pgmasking
-PGPASSWORD="$POSTGRES_PASSWORD" pg_dump --no-owner -h "$POSTGRES_HOST" -U "$POSTGRES_USER" "$POSTGRES_DBNAME" | pgmasking -c "$FILEDIR/masking.yml" > "$FILEDIR/tmp/masking_dumpfile.sql"
+PGPASSWORD="$POSTGRES_PASSWORD" pg_dump --no-owner -h "$POSTGRES_HOST" -U "$POSTGRES_USER" "$POSTGRES_DBNAME" | pgmasking -c "$FILEDIR/masking.yml" > "$FILEDIR/tmp/pgmasking_dumpfile.sql"
 
 ## compare
 _psql < "$FILEDIR/drop_table.sql" > /dev/null
-_psql < "$FILEDIR/tmp/masking_dumpfile.sql" > /dev/null
+_psql < "$FILEDIR/tmp/pgmasking_dumpfile.sql" > /dev/null
 _psql -c '\x' -c 'SELECT * FROM users ORDER BY id;' > "$FILEDIR/tmp/query_result.txt"
 diff "$FILEDIR/tmp/query_result.txt" "$FILEDIR/expected_query_result.txt" && echo 'test passed!'
