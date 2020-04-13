@@ -60,7 +60,13 @@ for MySQL: [MasKING](https://github.com/kibitan/masking)
 1. Dump database with anonymizing
 
     (TBC)
-    pgMasKING works (or doesn't) with `pg_dump --column-inserts`. possible to combine with `--rows-per-insert=n` (version 12~) option.
+    pgMasKING work with `pg_dump` command. It doesn't (or only) work with `--column-inserts`/`--attribute-inserts`/`--rows-per-insert=n`(version 12~) options.
+
+    ```bash
+      pg_dump DATABASE_NAME | pgmasking > anonymized_dump.sql
+    ```
+
+    or
 
     ```bash
       pg_dump DATABASE_NAME --column-inserts --rows-per-insert=100 | pgmasking > anonymized_dump.sql
@@ -75,7 +81,7 @@ for MySQL: [MasKING](https://github.com/kibitan/masking)
     Tip: If you don't need to have an anonymized dump file, you can directly insert it from the stream. It can be faster because it has less IO interaction.
 
       ```bash
-        pg_dump DATABASE_NAME --column-inserts --rows-per-insert=100 | pgmasking | psql ANONYMIZED_DATABASE_NAME
+        pg_dump DATABASE_NAME | pgmasking | psql ANONYMIZED_DATABASE_NAME
       ```
 
 ### options
@@ -145,11 +151,26 @@ or
 
 #### acceptance test
 
-(TBC)
+```bash
+./acceptance/run_test.sh
+```
 
-##### with docker
+available option via environment variable:
 
-(TBC)
+* `POSTGRES_HOST`: database host(default: `localhost`)
+* `POSTGRES_USER`: mysql user name(default: `postgres`}
+* `POSTGRES_PASSWORD`: password for user(default: `password`)
+* `POSTGRES_DBNAME`: database name(default: `pgmasking_acceptance`)
+
+##### with docker-compose
+
+```bash
+docker-compose/acceptance_test.sh postgres12
+```
+
+The docker-compose file names for other database versions, specify that file.
+
+* PostgreSQL 12: [`docker-compose/postgres12.yml`](./docker-compose/postgres12.yml)
 
 ## Development with Docker
 
