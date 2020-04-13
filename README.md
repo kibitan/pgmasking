@@ -2,7 +2,6 @@
 
 [![build](https://github.com/kibitan/pgmasking/workflows/build/badge.svg?branch=master)](https://github.com/kibitan/pgmasking/actions?query=workflow%3Abuild+branch%3Amaster)
 [![Acceptance Test Status](https://github.com/kibitan/pgmasking/workflows/Acceptance%20Test/badge.svg?branch=master)](https://github.com/kibitan/pgmasking/actions?query=workflow%3A%22Acceptance+Test%22+branch%3Amaster)
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/d0a198f3633d329592af/maintainability)](https://codeclimate.com/github/kibitan/pgmasking/maintainability)
 [![codecov](https://codecov.io/gh/kibitan/pgmasking/branch/master/graph/badge.svg)](https://codecov.io/gh/kibitan/pgmasking)
 
