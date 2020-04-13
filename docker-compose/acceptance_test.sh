@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -Ceu -o pipefail
-set -vx # for debug
+# set -vx # for debug
 
 POSTGRES_VERSION=${1:-postgres12}
 DOCKER_COMPOSE_FILE=${2:-docker-compose.yml}
