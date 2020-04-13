@@ -1,4 +1,4 @@
-name: Acceptance Test MariaDB
+name: Acceptance Test
 on:
   push:
     branches:

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -Ceu -o pipefail
+set -Ceu
 # set -vx # for debug
 
 POSTGRES_VERSION=${1:-postgres12}
