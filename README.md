@@ -24,7 +24,7 @@ for MySQL: [MasKING](https://github.com/kibitan/masking)
 
 ## Supported RDBMS
 
-* PostgreSQL: version (TBC)
+* PostgreSQL: 12, 11, 10, 9.6, 9.5
 
 ## Usage
 
@@ -172,6 +172,10 @@ docker-compose/acceptance_test.sh postgres12
 The docker-compose file names for other database versions, specify that file.
 
 * PostgreSQL 12: [`docker-compose/postgres12.yml`](./docker-compose/postgres12.yml)
+* PostgreSQL 11: [`docker-compose/postgres11.yml`](./docker-compose/postgres11.yml)
+* PostgreSQL 10: [`docker-compose/postgres10.yml`](./docker-compose/postgres10.yml)
+* PostgreSQL 9.6: [`docker-compose/postgres96.yml`](./docker-compose/postgres96.yml)
+* PostgreSQL 9.5: [`docker-compose/postgres95.yml`](./docker-compose/postgres95.yml)
 
 ## Development with Docker
 
