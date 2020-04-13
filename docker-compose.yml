@@ -6,3 +6,5 @@ services:
     stdin_open: true
     volumes:
       - .:/go/src/app
+    tmpfs:
+      - /go/src/app/tmp

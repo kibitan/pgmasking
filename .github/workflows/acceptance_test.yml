@@ -1,0 +1,48 @@
+name: Acceptance Test MariaDB
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  postgres12:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1 # shallow clone
+      - name: run test
+        run: docker-compose/acceptance_test.sh postgres12 docker-compose-ci.yml
+  postgres11:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1 # shallow clone
+      - name: run test
+        run: docker-compose/acceptance_test.sh postgres11 docker-compose-ci.yml
+  postgres10:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1 # shallow clone
+      - name: run test
+        run: docker-compose/acceptance_test.sh postgres10 docker-compose-ci.yml
+  postgres96:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1 # shallow clone
+      - name: run test
+        run: docker-compose/acceptance_test.sh postgres96 docker-compose-ci.yml
+  postgres95:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1 # shallow clone
+      - name: run test
+        run: docker-compose/acceptance_test.sh postgres95 docker-compose-ci.yml
