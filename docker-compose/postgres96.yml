@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      target: with-postgres-client
+    depends_on:
+      - postgres96
+    environment:
+      POSTGRES_PASSWORD: password
+    entrypoint: docker-compose/wait-for-postgres.sh postgres96
+
+  postgres96:
+    image: postgres:9.6-alpine
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: pgmasking_acceptance

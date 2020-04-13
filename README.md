@@ -1,8 +1,9 @@
 # pgMasKING🤴
 
 [![build](https://github.com/kibitan/pgmasking/workflows/build/badge.svg?branch=master)](https://github.com/kibitan/pgmasking/actions?query=workflow%3Abuild+branch%3Amaster)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d0a198f3633d329592af/maintainability)](https://codeclimate.com/github/kibitan/pgmasking/maintainability)
+[![Acceptance Test Status](https://github.com/kibitan/pgmasking/workflows/Acceptance%20Test/badge.svg?branch=master)](https://github.com/kibitan/pgmasking/actions?query=workflow%3A%22Acceptance+Test%22+branch%3Amaster)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/d0a198f3633d329592af/maintainability)](https://codeclimate.com/github/kibitan/pgmasking/maintainability)
 [![codecov](https://codecov.io/gh/kibitan/pgmasking/branch/master/graph/badge.svg)](https://codecov.io/gh/kibitan/pgmasking)
 
 *This project is currently Work in Progress*
@@ -23,7 +24,7 @@ for MySQL: [MasKING](https://github.com/kibitan/masking)
 
 ## Supported RDBMS
 
-* PostgreSQL: version (TBC)
+* PostgreSQL: 12, 11, 10, 9.6, 9.5
 
 ## Usage
 
@@ -55,19 +56,24 @@ for MySQL: [MasKING](https://github.com/kibitan/masking)
       not-date: !!str 2002-04-28
     ```
 
-    *NOTE: pgMasKING doesn't check actual schema's type from the dump. If you put incompatible value it will cause an error during restoring to the database.*
+    *NOTE: pgMasKING doesn't check actual schema's type from the dump. If you put incompatible value, it will cause an error during restoring to the database.*
 
 1. Dump database with anonymizing
 
-    TBC
+    (TBC)
+    pgMasKING work with `pg_dump` command. It doesn't (or only) work with `--column-inserts`/`--attribute-inserts`/`--rows-per-insert=n`(version 12~) options.
 
     ```bash
       pg_dump DATABASE_NAME | pgmasking > anonymized_dump.sql
     ```
 
-1. Restore from the anonymized dump file
+    or
 
-    TBC
+    ```bash
+      pg_dump DATABASE_NAME --column-inserts --rows-per-insert=100 | pgmasking > anonymized_dump.sql
+    ```
+
+1. Restore from the anonymized dump file
 
     ```bash
       psql ANONYMIZED_DATABASE_NAME < anonymized_dump.sql
@@ -146,11 +152,30 @@ or
 
 #### acceptance test
 
-(TBC)
+```bash
+./acceptance/run_test.sh
+```
 
-##### with docker
+available option via environment variable:
 
-(TBC)
+* `POSTGRES_HOST`: database host(default: `localhost`)
+* `POSTGRES_USER`: mysql user name(default: `postgres`}
+* `POSTGRES_PASSWORD`: password for user(default: `password`)
+* `POSTGRES_DBNAME`: database name(default: `pgmasking_acceptance`)
+
+##### with docker-compose
+
+```bash
+docker-compose/acceptance_test.sh postgres12
+```
+
+The docker-compose file names for other database versions, specify that file.
+
+* PostgreSQL 12: [`docker-compose/postgres12.yml`](./docker-compose/postgres12.yml)
+* PostgreSQL 11: [`docker-compose/postgres11.yml`](./docker-compose/postgres11.yml)
+* PostgreSQL 10: [`docker-compose/postgres10.yml`](./docker-compose/postgres10.yml)
+* PostgreSQL 9.6: [`docker-compose/postgres96.yml`](./docker-compose/postgres96.yml)
+* PostgreSQL 9.5: [`docker-compose/postgres95.yml`](./docker-compose/postgres95.yml)
 
 ## Development with Docker
 
@@ -158,6 +183,16 @@ or
 docker build . -t pgmasking
 echo "sample stdout" | docker run -i pgmasking
 docker run pgmasking -v
+```
+
+### run test
+
+```bash
+docker build . --target builder -t pgmasking-builder
+docker run pgmasking-builder go test -v ./..
+
+# with mounting disk
+docker run --mount src=`pwd`,target=/go/src/app,type=bind pgmasking-builder go test -v ./..
 ```
 
 ## Profiling

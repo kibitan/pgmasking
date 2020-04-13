@@ -16,3 +16,6 @@
 
 # artifacts
 pgmasking
+
+/tmp
+/acceptance/tmp
