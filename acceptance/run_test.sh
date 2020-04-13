@@ -22,7 +22,7 @@ if (_psql -c '\dt' | grep users) > /dev/null 2>&1; then
 fi
 
 ## import database
-_psql < "$FILEDIR/$POSTGRES_VERSION/import_dumpfile.sql" > /dev/null
+_psql < "$FILEDIR/import_dumpfile/$POSTGRES_VERSION.sql" > /dev/null
 
 ## pgmasking
 PGPASSWORD="$POSTGRES_PASSWORD" pg_dump --no-owner -h "$POSTGRES_HOST" -U "$POSTGRES_USER" "$POSTGRES_DBNAME" | pgmasking -c "$FILEDIR/masking.yml" > "$FILEDIR/tmp/pgmasking_dumpfile.sql"
