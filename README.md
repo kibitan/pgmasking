@@ -158,7 +158,7 @@ or
 available option via environment variable:
 
 * `POSTGRES_HOST`: database host(default: `localhost`)
-* `POSTGRES_USER`: mysql user name(default: `postgres`}
+* `POSTGRES_USER`: postgres user name(default: `postgres`}
 * `POSTGRES_PASSWORD`: password for user(default: `password`)
 * `POSTGRES_DBNAME`: database name(default: `pgmasking_acceptance`)
 
