@@ -8,6 +8,7 @@ services:
       - postgres10
     environment:
       POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
     entrypoint: docker-compose/wait-for-postgres.sh postgres10
 
   postgres10:
