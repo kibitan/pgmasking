@@ -7,7 +7,9 @@ services:
     depends_on:
       - postgres12
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
+      POSTGRES_HOST: postgres12
     entrypoint: docker-compose/wait-for-postgres.sh postgres12
 
   postgres12:

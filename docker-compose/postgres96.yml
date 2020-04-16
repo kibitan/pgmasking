@@ -7,7 +7,9 @@ services:
     depends_on:
       - postgres96
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
+      POSTGRES_HOST: postgres96
     entrypoint: docker-compose/wait-for-postgres.sh postgres96
 
   postgres96:
