@@ -7,8 +7,9 @@ services:
     depends_on:
       - postgres95
     environment:
-      POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: postgres95
     entrypoint: docker-compose/wait-for-postgres.sh postgres95
 
   postgres95:
