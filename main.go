@@ -7,5 +7,6 @@ import (
 )
 
 func main() {
-	inout.Do(os.Stdin, os.Stdout)
+	p := func(s *[]byte) *[]byte { return s } // dummy
+	inout.Do(os.Stdin, os.Stdout, p)
 }
