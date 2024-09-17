@@ -19,7 +19,7 @@ for MySQL: [MasKING](https://github.com/kibitan/masking)
 
 ## Requirement for development
 
-* Golang 1.14
+* Golang 1.22
 
 ## Supported RDBMS
 
