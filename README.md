@@ -19,11 +19,11 @@ for MySQL: [MasKING](https://github.com/kibitan/masking)
 
 ## Requirement for development
 
-* Golang 1.22
+* Golang or Ruby or Crystal (TBD)
 
 ## Supported RDBMS
 
-* PostgreSQL: 12, 11, 10, 9.6, 9.5
+* PostgreSQL: 18, 17, 16, 15, 14, 13, 12, 11, 10, 9.6, 9.5
 
 ## Usage
 
@@ -106,6 +106,8 @@ git clone git@github.com:kibitan/pgmasking.git
 ```
 
 ### boot
+
+(TBD)
 
 ```bash
   go run .
